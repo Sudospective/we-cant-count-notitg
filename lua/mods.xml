@@ -11,15 +11,21 @@
 		P[pn]:hidden(1)
 	end
 	-- your code goes here here:
-	local function bg(a)
+	function bg(a)
 		a:xy(scx, scy)
 		a:SetWidth(sw)
 		a:SetHeight(sh)
+		a:diffuse(0, 0, 0, 1)
 	end
+	
+	bg(HideEvent)
 
-	rand.seed(1234568)
+	aft(AFT)
+	sprite(AFTSprite)
+	aftsprite(AFT, AFTSprite)
+	AFTSprite:diffusealpha(0)
 
-	setdefault {2, 'xmod', 100, 'modtimer', 100, 'dizzyholds', 100, 'gayholds'}
+	setdefault {2, 'xmod', 100, 'modtimer', 100, 'dizzyholds', 100, 'gayholds', 100, 'halgun'}
 
 	-- i dont like xml
 	local songDir = '.' .. GAMESTATE:GetCurrentSong():GetMusicPath() .. '/../'
@@ -29,11 +35,16 @@
 end)"
 Type = "ActorFrame"
 ><children>
+	<Layer Type = "Quad" Name = "HideEvent" />
+	<Layer Type = "Quad" Name = "RainbowBG" />
 	<Layer Type = "ActorProxy" Name = "PP[1]" />
 	<Layer Type = "ActorProxy" Name = "PP[2]" />
+	<Layer Type = "Sprite" Name = "AFTSprite" />
+	<Layer Type = "Quad" Name = "NoteInvert" />
 	<Layer Type = "Quad" Name = "NoteMask" />
 	<Layer Type = "ActorProxy" Name = "PC[1]" />
 	<Layer Type = "ActorProxy" Name = "PC[2]" />
 	<Layer Type = "ActorProxy" Name = "PJ[1]" />
 	<Layer Type = "ActorProxy" Name = "PJ[2]" />
+	<Layer Type = "ActorFrameTexture" Name = "AFT" />
 </children></Mods>
