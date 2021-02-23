@@ -77,15 +77,15 @@ local function bop(beat, stage)
         end
     if stage > 0 then
         if beat ~= 72 then
-            add {beat - 2, 4, spike, 15, 'rotationz'}
+            add {beat - 2, 4, spike, -45, 'rotationy'}
             strobemask(beat)
         end
-        add {beat - 1, 4, spike, -15, 'rotationz'}
+        add {beat - 1, 4, spike, 45, 'rotationy'}
         strobemask(beat + 1)
     end
     add
-        {beat - 2, 4, spike, 25, 'tornado', 10, 'flip', 25, 'brake', 400, 'zoomz', 50, 'bumpyz', -45, 'rotationy'}
-        {beat - 1, 4, spike, 25, 'tornado', 10, 'flip', 25, 'brake', 400, 'zoomz', 50, 'bumpyz', 45, 'rotationy'}
+        {beat - 2, 4, spike, 25, 'tornado', 10, 'flip', 25, 'brake', 400, 'zoomz', 50, 'bumpyz', 15, 'rotationz'}
+        {beat - 1, 4, spike, 25, 'tornado', 10, 'flip', 25, 'brake', 400, 'zoomz', 50, 'bumpyz', -15, 'rotationz'}
 
 end
 
