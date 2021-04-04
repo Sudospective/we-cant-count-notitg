@@ -42,9 +42,9 @@ Type = "ActorFrame"
 	<Layer Type = "Sprite" Name = "AFTSprite" />
 	<Layer Type = "Quad" Name = "NoteInvert" />
 	<Layer Type = "Quad" Name = "NoteMask" />
+	<Layer Type = "ActorFrameTexture" Name = "AFT" />
 	<Layer Type = "ActorProxy" Name = "PC[1]" />
 	<Layer Type = "ActorProxy" Name = "PC[2]" />
 	<Layer Type = "ActorProxy" Name = "PJ[1]" />
 	<Layer Type = "ActorProxy" Name = "PJ[2]" />
-	<Layer Type = "ActorFrameTexture" Name = "AFT" />
 </children></Mods>

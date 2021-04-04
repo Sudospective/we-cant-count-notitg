@@ -128,7 +128,7 @@ ease
 {211, 3.5, linear, -500, 'tiny', 100, 'dark'}
 {211, 1.5, linear, 100, 'stealth'}
 
-set {216,
+set {215,
 	 100, 'drawsize',
 	   0, 'tiny',
 	   0, 'dark',
@@ -140,7 +140,7 @@ set {216,
 	-900, 'movex3',
 	 200, 'tiny1'
 }
-{216.833, 0, 'tiny1'}
+--{216.833, 0, 'tiny1'}
 
 set {184, 360 * 9, 'rotationy', (math.pi * 2) * 9 * -100, 'confusionyoffset'}
 
@@ -160,16 +160,29 @@ ease
 
 {200, 2, outCirc, 360 * 0, 'rotationy', (math.pi * 2) * 0, 'confusionyoffset'}
 
-
 {202, 10, linear, 100, 'beat'}
 
+-- The original plinkies
+--[[
 {216.333, 0.5, outElastic, 0, 'movex0'}
 {216.500, 0.5, outElastic, 0, 'movex3'}
 {216.833, 0.5, outElastic, 0, 'movey1'}
 {217.000, 0.5, outElastic, 0, 'movey2'}
 
 {217.333, 0.5, outElastic, 0, 'flip'}
+--]]
 
+-- IN CASE OF REACTION FUNNIES BREAK COMMENT
+---[[
+{216.333 - 1, 2, outBounce, 0, 'movex0'}
+{216.500 - 1, 2, outBounce, 0, 'movex3'}
+{216.833 - 1, 2, outBounce, 0, 'movey1'}
+{217.000 - 1, 2, outBounce, 0, 'movey2'}
+
+{217.333 - 2, 2, outBounce, 0, 'flip'}
+
+set {216.833 - 0.5, 0, 'tiny1'}
+--]]
 
 ease
 {246.0, 1, outCirc,   50, 'split', - 50, 'cross',   50, 'alternate',   0, 'reverse'}
@@ -188,7 +201,7 @@ set
 {188, 100, 'reverse', 100, 'flip', -100, 'invert', plr = 1}
 {192,   0, 'reverse', 0, 'flip', plr = 2}
 {196,   0, 'reverse', 0, 'flip', 100, 'invert'}
-{216,   0, 'invert'}
+{215,   0, 'invert'}
 
 {212.5, 0, 'beat'}
 

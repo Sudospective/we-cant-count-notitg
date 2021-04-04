@@ -12,6 +12,10 @@ bg(RainbowBG)
 RainbowBG:rainbow()
 RainbowBG:diffusealpha(0.5)
 RainbowBG:hidden(1)
+if not FUCK_EXE then
+    NoteMask:zmask(0)
+    NoteInvert:zmask(0)
+end
 
 rand.seed(1234568 + shit)
 
@@ -89,10 +93,8 @@ local function bop(beat, stage)
 
 end
 
-set {0, 175, 'mini', 25, 'beat', 500, 'drawsize'}
-
 func
-    {0, 7.5, linear, 1, 0, function(n)
+    {0, 7.5, inQuad, 1, 0, function(n)
         NoteMask:diffusealpha(n)
     end}
     {8, function()
@@ -106,9 +108,19 @@ strobemask(73)
 strobemask(86)
 strobemask(88)
 
+set
+    {0, 175, 'mini', 75, 'beat', 500, 'drawsize'}
+    {0, -90, 'rotationx', 45, 'rotationz'}
+    {54, 100, 'stealth', 100, 'dark'}
+    {54.5, 0, 'stealth', 0, 'dark'}
+    {243, 0, 'rotationz'}
+
 ease
+    {1.5, 7.5, outSine, 0, 'rotationx', 0, 'rotationz'}
     {0, 8, inQuad, 150, 'mini'}
     {7.5, 1, inOutExpo, 150, 'beat', 0, 'mini', 100, 'drawsize'}
+
+    {18, 4.25, function(t) return inSine(tap(t)) end, 35, 'stealth', -75, 'tiny'}
 
     {20.5, 1, inOutCirc, 0, 'beat'}
     {23.5, 1, inOutCirc, 150, 'beat'}
@@ -149,6 +161,13 @@ ease
     {149.5, 2, inOutBack, 0, 'confusionzoffset', 0, 'invert'}
 
     {163.5, 1, inOutCirc, 0, 'beat'}
+    
+    {203, 2, inOutQuint, 0, 'invert'}
+    {211, 2, inOutQuint, 100, 'invert'}
+    {212, 3, linear, 50, 'invert', 25, 'flip'}
+
+    {243.5, 0.5, inQuad, -100, 'movex', 200, 'drunk', 100, 'tipsy', 115, 'zoomy', -10, 'skewx', 10, 'rotationz', -75, 'rotationy', -50, 'tiny'}
+    {244, 4, outElastic, 0, 'movex', 0, 'drunk', 0, 'tipsy', 100, 'zoomy', 0, 'skewx', 0, 'rotationz',0, 'rotationy', 0, 'tiny'}
 
     {309.5, 2, bell, 100, 'reverse'}
     {311, 0.5, outCirc, 0, 'beat'}
@@ -161,6 +180,7 @@ add
     {149.5, 1, inOutCirc, -360, 'rotationy', 360 * math.pi / 1.8, 'confusionyoffset'}
     {149.5, 1, spike, -5000, 'tiny'}
     
+    {212, 3, tap, 30, 'rotationz', 100, 'centered'}
     
     {132, 4, spike, -150, 'holdgirth', 25, 'brake', 50, 'bumpyz', 25, 'tornado', 10, 'flip', 400, 'zoomz', -15, 'rotationy', -15 * math.pi / 1.8, 'confusionzoffset', -45, 'rotationx', 45 * math.pi / 1.8, 'confusionxoffset', 15, 'rotationz', -500, 'tinyz'}
     {133.5, 1, inOutCirc, -360, 'rotationy', 360 * math.pi / 1.8, 'confusionyoffset'}
@@ -183,6 +203,10 @@ swap
     {119.25, 0.5, inOutCirc, 'rudl'}
     {120.75, 0.5, inOutCirc, 'lurd'}
 
+    {203, 2, inOutQuint, 'urld'}
+    {207, 2, inOutQuint, 'ludr'}
+    {211, 2, inOutQuint, 'ldur'}
+
     {309.5, 2, bell, 'urld'}
 
 func
@@ -199,6 +223,16 @@ func
     {150, function() RainbowBG:hidden(1) end}
     {152, function() RainbowBG:hidden(0) end}
     {164, function() RainbowBG:hidden(1) end}
+    {212, function()
+        for pn = 1, 2 do
+            P[pn]:vibrate()
+        end
+    end}
+    {216, function()
+        for pn = 1, 2 do
+            P[pn]:stopeffect()
+        end
+    end}
     {218, function()
         AFTSprite:diffusealpha(0.85)
         AFTSprite:wag()
@@ -235,4 +269,12 @@ for beat = 8, 310, 2 do
     elseif beat >= 282 and beat < 310 then
         bop(beat, 4)
     end
+end
+
+for beat = 54, 54.5, 0.25 do
+    ease
+        {beat, 0.0625, bell, 100, 'flip', 200, 'tipsy', 0, 'stealth', 0, 'dark'}
+        {beat + 0.0625, 0.0625, bell, 100, 'invert', 200, 'drunk', 0, 'stealth', 0, 'dark'}
+        {beat + 0.125, 0.0625, bell, 100, 'flip', -200, 'tipsy', 0, 'stealth', 0, 'dark'}
+        {beat + 0.1875, 0.0625, bell, 100, 'invert', -200, 'drunk', 0, 'stealth', 0, 'dark'}
 end
