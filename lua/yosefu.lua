@@ -218,3 +218,23 @@ ease {311, 0.5, outCirc, 0, 'zoom'}
 ease
 {73, 1, pop, 150, 'tiny', 100, 'reverse', 100, 'invert', 90 * math.pi / 1.8, 'confusionzoffset'}
 {281, 0.5, pop, 150, 'tiny', 100, 'reverse', 100, 'invert', 90 * math.pi / 1.8, 'confusionzoffset'}
+
+
+
+{194, 4.25, function(t) return inSine(tap(t)) end, 35, 'stealth', -75, 'tiny'}
+
+
+----------------
+-- Spellcards --
+----------------
+card {  8,  22, 'Okay, first attempt',                            1, {   0 / 255, 255 / 255,   0 / 255 }}
+card { 24,  38, 'Well we can always try again',                   1, {  50 / 255, 200 / 255,   0 / 255 }}
+card { 41,  73, 'Attempt Number Two',                             3, { 100 / 255, 150 / 255,   0 / 255 }}
+card { 73,  88, 'Third time\'s the charm?',                       5, { 150 / 255, 100 / 255,   0 / 255 }}
+card { 88, 104, 'Wow you suck at counting',                       8, { 200 / 255,  50 / 255,   0 / 255 }}
+card {104, 136, 'Wait were the notes always this rainbow-y?',     9, { 255 / 255,   0 / 255,  50 / 255 }}
+card {136, 169, 'Rainbow BG for the win',                        10, { 255 / 255,  50 / 255, 100 / 255 }}
+card {169, 212, 'You\'re very close. Let\'s try one more time.',  4, { 200 / 255, 100 / 255, 150 / 255 }}
+card {216, 248, 'Those be some bright notes',                    11, { 255 / 255, 255 / 255, 255 / 255 }}
+card {248, 280, 'You really DO suck at counting',                 7, { 255 / 255,   0 / 255,   0 / 255 }}
+card {280, 314, 'More 24th gallops? Got it.',                    10, { 149 / 255,  82 / 255, 250 / 255 }}
