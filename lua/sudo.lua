@@ -70,6 +70,12 @@ local function attempt_to_count(beat)
     end
     --]]
     ---[[
+    func {beat, function()
+        for pn = 1, 2 do
+            PP[pn]:hidden(1)
+        end
+        WeCantCount[1]:hidden(0)
+    end}
     func {beat + 1.75, 0.5, inOutCirc, 0, scx * 0.4, function(p)
         WeCantCount[2]:hidden(0)
         for cn = 1, #WeCantCount do
@@ -124,7 +130,7 @@ local function attempt_to_count(beat)
             end
         end
     end}
-    func {beat + 11.75, 0.5, inOutCirc, scx * 2.0, scx * 2.8, function(p)
+    func {beat + 12, 0.5, outBack, scx * 2.0, scx * 2.8, function(p)
         WeCantCount[7]:hidden(0)
         WeCantCount[8]:hidden(0)
         for cn = 1, #WeCantCount do
@@ -139,15 +145,10 @@ local function attempt_to_count(beat)
 end
 
 local function try_again(beat)
-    func {beat + 1.75, 0.25, inCirc, scx * 0.4, 0, function(p)
-        WeCantCount[1]:x(-p * 4.5)
-        WeCantCount[2]:x(p * 4.5)
-        WeCantCount[3]:x(-p * 3.5)
-        WeCantCount[4]:x(p * 3.5)
-        WeCantCount[5]:x(-p * 2.5)
-        WeCantCount[6]:x(p * 2.5)
-        WeCantCount[7]:x(-p)
-        WeCantCount[8]:x(p)
+    func {beat + 1.5, 0.5, inCirc, scx * 0.4, 0, function(p)
+        for cn = 1, #WeCantCount do
+            WeCantCount[cn]:x(p * ((((cn % 2) - 0.5) * 2) + (2 * (((cn > 2 and (((cn % 2) - 0.5) * 2)) or 0))))) -- dont ask.
+        end
     end}
     func {beat + 2, function()
         for pn = 1, 2 do
@@ -157,12 +158,6 @@ local function try_again(beat)
             WeCantCount[cn]:x(0)
             WeCantCount[cn]:hidden(1)
         end
-    end}
-    func {beat + 4, function()
-        for pn = 1, 2 do
-            PP[pn]:hidden(1)
-        end
-        WeCantCount[1]:hidden(0)
     end}
 end
 
@@ -178,21 +173,14 @@ local function fuck_go_back(beat)
     end}
 
     ease
-        {beat, 0.25, outCirc, 1.5, 'xmod'}
-        {beat, 0.25, outCirc, 25, 'invert', -25, 'flip', -45 * math.pi/1.8, 'confusionzoffset0', 135 * math.pi/1.8, 'confusionzoffset1', 45 * math.pi/1.8, 'confusionzoffset2', 45 * math.pi/1.8, 'confusionzoffset3', plr = 1}
+        {beat, 2, outElastic, 1.5, 'xmod'}
+        {beat, 2, outElastic, 25, 'invert', -25, 'flip', -45 * math.pi/1.8, 'confusionzoffset0', 135 * math.pi/1.8, 'confusionzoffset1', 45 * math.pi/1.8, 'confusionzoffset2', 45 * math.pi/1.8, 'confusionzoffset3', plr = 1}
         {beat, 0.25, outCirc, 50, 'flip', 100, 'stealth', 100, 'dark0', 100, 'dark2', 100, 'dark3', 100, 'hidenoteflashes', plr = 2}
-        {beat + 0.75, 0.5, inOutCirc, 0, 'invert', 0, 'flip', 0, 'confusionzoffset0', 0, 'confusionzoffset1', 0, 'confusionzoffset2', 0, 'confusionzoffset3', plr = 1}
-        {beat + 0.75, 0.5, inOutCirc, 200, 'tiny', plr = 2}
-        {beat + 1.75, 0.5, inOutCirc, 50, 'movex', 200, 'tiny2', plr = 1}
-        {beat + 3.75, 0.25, inCirc, 0, 'movex', 0, 'tiny2', 0, 'flip', 0, 'stealth', 0, 'dark0', 0, 'dark2', 0, 'dark3', 0, 'hidenoteflashes', 0, 'tiny'}
-        {beat + 4.75, 0.25, inCirc, 3, 'xmod'}
-
-    func {beat + 4, function()
-        for pn = 1, 2 do
-            PP[pn]:hidden(1)
-        end
-        WeCantCount[1]:hidden(0)
-    end}
+        {beat + 1, 2, outElastic, 0, 'invert', 0, 'flip', 0, 'confusionzoffset0', 0, 'confusionzoffset1', 0, 'confusionzoffset2', 0, 'confusionzoffset3', plr = 1}
+        {beat + 0.75, 0.25, inOutCirc, 200, 'tiny', plr = 2}
+        {beat + 1.875, 0.25, inOutCirc, 50, 'movex', 200, 'tiny2', plr = 1}
+        {beat + 3.875, 0.25, inOutCirc, 0, 'movex', 0, 'tiny2', 0, 'flip', 0, 'stealth', 0, 'dark0', 0, 'dark2', 0, 'dark3', 0, 'hidenoteflashes', 0, 'tiny'}
+        {beat + 5, 1, outCirc, 3.25, 'xmod'}
 end
 
 
@@ -224,16 +212,26 @@ end
 
 local function three(beat)
     ease
+        --[[
         {beat + 0.500, 0.5, outExpo, -200, 'movex', plr = 1}
         {beat + 0.833, 0.5, outExpo, -200, 'movex', plr = 2}
         {beat + 1.500, 0.5, outExpo, 0, 'movex'}
+        --]]
+        {beat + 0.500, 0.5, outExpo, -200, 'movex0', -200, 'movex2'}
+        {beat + 0.833, 0.5, outExpo, -200, 'movex1', -200, 'movex3'}
+        {beat + 1.500, 0.5, outExpo, 0, 'movex0', 0, 'movex1', 0, 'movex2', 0, 'movex3'}
 end
 
 local function six(beat)
     ease
+        --[[
         {beat + 0.833, 0.5, outExpo, 200, 'movex'}
         {beat + 1.333, 0.5, outExpo, 0, 'movex', plr = 1}
         {beat + 1.500, 0.5, outExpo, 0, 'movex', plr = 2}
+        --]]
+        {beat + 0.833, 0.5, outExpo, 200, 'movex0', 200, 'movex1', 200, 'movex2', 200, 'movex3'}
+        {beat + 1.333, 0.5, outExpo, 0, 'movex0', 0, 'movex1'}
+        {beat + 1.500, 0.5, outExpo, 0, 'movex2', 0, 'movex3'}
 end
 
 local function shit(beat)
@@ -365,22 +363,24 @@ set
     {40.75, 0, 'stealth'}
     {54, 100, 'stealth', 100, 'dark'}
     {54.5, 0, 'stealth', 0, 'dark'}
-    {218, 3, 'xmod'}
+    {90, 3.25, 'xmod'}
+    {218, 3.25, 'xmod'}
     {243, 0, 'rotationz'}
 
 -- Ease
 ease
     {1, 7.5, outSine, 0, 'rotationx', 0, 'rotationz'}
     {0, 8, inQuad, 150, 'mini'}
-    {7.5, 1, inOutCirc, 3, 'xmod', 150, 'beat', 0, 'mini', 100, 'drawsize'}
+    {7.5, 1, inOutCirc, 3.25, 'xmod', 150, 'beat', 0, 'mini', 100, 'drawsize'}
 
     {18, 4.25, function(t) return inSine(tap(t)) end, 35, 'stealth', -75, 'tiny'}
 
     {20.5, 1, inOutCirc, 0, 'beat'}
     {23.5, 1, inOutCirc, 150, 'beat'}
 
+    {22, 0.25, outElastic, 1.5, 'xmod'}
     {22, 0.5, outBack, 100, 'invert', 100, 'mini'}
-    {23.5, 1, inOutCirc, 0, 'reverse', 0, 'invert', 0, 'mini'}
+    {23.5, 1, inOutCirc, 0, 'reverse', 0, 'invert', 0, 'mini', 3.25, 'xmod'}
 
     {36.75, 1, inOutCirc, 0, 'beat'}
     {39.75, 1, inOutCirc, 150, 'beat'}
@@ -395,7 +395,7 @@ ease
     {71.75, 1, inOutCirc, 150, 'beat'}
     {72.5, 1, inOutCirc, 0.0001, 'bumpy'}
 
-    {85.75, 0.5, inOutCirc, 100, 'reverse', 100, 'invert'}
+    {85.75, 0.5, inOutCirc, 100, 'reverse', 100, 'invert', 1.5, 'xmod'}
     {85.75, 1, inOutCirc, 0, 'beat'}
     {87.75, 0.5, inOutCirc, 0, 'reverse', 0, 'invert'}
     {87.5, 1, bounce, -150, 'beat'}
@@ -405,15 +405,15 @@ ease
     {120.5, 1, inOutCirc, 100, 'beat', 0, 'reverse', 0, 'drunk', 0, 'mini'}
     {118, 3, inExpo, 5, 'xmod'}
     {120.5, 1, spike, -5000, 'tiny'}
-    {121, 1, outExpo, 3, 'xmod'}
+    {121, 1, outExpo, 3.25, 'xmod'}
 
-    {133.5, 1, inOutCirc, 0, 'beat'}
+    {133.5, 1, inOutCirc, 0, 'beat', 1.5, 'xmod'}
     {134.75, 0.5, inOutExpo, 100, 'invert'}
-    {135.5, 1, inOutCirc, 150, 'beat'}
+    {135.5, 1, inOutCirc, 150, 'beat', 3.25, 'xmod'}
     {135.75, 0.5, inOutExpo, 0, 'invert'}
 
-    {149.5, 1, inOutCirc, 0, 'beat', 90 * math.pi / 1.8, 'confusionzoffset', 100, 'invert'}
-    {151.5, 1, inOutCirc, 150, 'beat'}
+    {149.5, 1, inOutCirc, 0, 'beat', 90 * math.pi / 1.8, 'confusionzoffset', 100, 'invert', 1.5, 'xmod'}
+    {151.5, 1, inOutCirc, 150, 'beat', 3.25, 'xmod'}
     {149.5, 2, inOutBack, 0, 'confusionzoffset', 0, 'invert'}
 
     {163.5, 1, inOutCirc, 0, 'beat'}

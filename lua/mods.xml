@@ -25,6 +25,21 @@
 	sprite(AFTSprite)
 	aftsprite(AFT, AFTSprite)
 	AFTSprite:diffusealpha(0)
+	AFT:hidden(1)
+	
+	-- stop drawing so goddamn much
+	lastFrameTime = GAMESTATE:GetSongTime()
+	deltaTime = GAMESTATE:GetSongTime() - lastFrameTime
+	func {214, 999, function()
+    	deltaTime = deltaTime + GAMESTATE:GetSongTime() - lastFrameTime
+    	if deltaTime > 0 then
+        	AFT:hidden(0)
+        	deltaTime = deltaTime - (1 / 60)
+    	else
+        	AFT:hidden(1)
+    	end
+    	lastFrameTime = GAMESTATE:GetSongTime()
+	end}
 
 	setdefault {3, 'xmod', 100, 'modtimer', 100, 'dizzyholds', 100, 'gayholds', 100, 'halgun'}
 
@@ -45,48 +60,40 @@ Type = "ActorFrame"
 		<Layer Type = "ActorFrame" Name = "WeCantCount[1]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[2]">
 		 	<children>
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[3]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[4]">
 		 	<children>
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[5]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[6]">
 		 	<children>
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[7]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[8]">
 		 	<children>
-			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
 			</children>
 		</Layer>

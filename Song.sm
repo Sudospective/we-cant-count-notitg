@@ -12,7 +12,7 @@
 #CDTITLE:;
 #MUSIC:Song.ogg;
 #OFFSET:0.000;
-#SAMPLESTART:76.822;
+#SAMPLESTART:76.802;
 #SAMPLELENGTH:11.215;
 #SELECTABLE:YES;
 #BPMS:0.000=107.000;
@@ -44,7 +44,7 @@
      dance-single:
      yosefudo:
      Challenge:
-     12:
+     14:
      0.492,0.557,0.057,0.551,0.247:
 0000
 0000
