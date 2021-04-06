@@ -246,15 +246,15 @@ ease
 ----------------
 -- Spellcards --
 ----------------
-card {  8,  22, 'Okay, first attempt',                            1, {   0 / 255, 255 / 255,   0 / 255 }}
-card { 24,  38, 'Well we can always try again',                   1, {  50 / 255, 200 / 255,   0 / 255 }}
-card { 41,  73, 'Attempt Number Two',                             3, { 100 / 255, 150 / 255,   0 / 255 }}
-card { 73,  88, 'Third time\'s the charm?',                       5, { 150 / 255, 100 / 255,   0 / 255 }}
-card { 88, 104, 'wow we suck at counting',                        8, { 200 / 255,  50 / 255,   0 / 255 }}
-card {104, 136, 'Wait were the notes always this rainbow-y?',     9, { 255 / 255,   0 / 255,  50 / 255 }}
-card {136, 169, 'Rainbow BG for the win',                        10, { 255 / 255,  50 / 255, 100 / 255 }}
-card {169, 212, 'You\'re very close. Let\'s try one more time.',  4, { 200 / 255, 100 / 255, 150 / 255 }}
-card {216, 248, 'the fuck you mean rainbow aft i cant see shit', 11, { 255 / 255, 255 / 255, 255 / 255 }}
-card {248, 280, 'We really DO suck at counting.',                 7, { 255 / 255,   0 / 255,   0 / 255 }}
-card {280, 310, 'More 24th gallops? Got it.',                    10, { 149 / 255,  82 / 255, 250 / 255 }}
-card {310, 312, 'shit',                                          11, { 114 / 255,  43 / 255,  43 / 255 }}
+card {  8,  22, 'Okay, first attempt',                            3, {   0 / 255, 255 / 255,   0 / 255 }}
+card { 24,  38, 'Well we can always try again',                   3, {  50 / 255, 200 / 255,   0 / 255 }}
+card { 41,  73, 'Attempt Number Two',                             7, { 100 / 255, 150 / 255,   0 / 255 }}
+card { 73,  88, 'Third time\'s the charm?',                       9, { 150 / 255, 100 / 255,   0 / 255 }}
+card { 88, 104, 'wow we suck at counting',                       10, { 200 / 255,  50 / 255,   0 / 255 }}
+card {104, 136, 'Wait were the notes always this rainbow-y?',    11, { 255 / 255,   0 / 255,  50 / 255 }}
+card {136, 169, 'Rainbow BG for the win',                        13, { 255 / 255,  50 / 255, 100 / 255 }}
+card {169, 212, 'You\'re very close. Let\'s try one more time.',  5, { 200 / 255, 100 / 255, 150 / 255 }}
+card {216, 248, 'the fuck you mean rainbow aft i cant see shit', 14, { 255 / 255, 255 / 255, 255 / 255 }}
+card {248, 280, 'We really DO suck at counting.',                 9, { 255 / 255,   0 / 255,   0 / 255 }}
+card {280, 310, 'More 24th gallops? Got it.',                    11, { 149 / 255,  82 / 255, 250 / 255 }}
+card {310, 312, 'shit',                                     1234568, { 114 / 255,  43 / 255,  43 / 255 }}
