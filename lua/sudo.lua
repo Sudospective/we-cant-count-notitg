@@ -364,6 +364,8 @@ set
     {54, 100, 'stealth', 100, 'dark'}
     {54.5, 0, 'stealth', 0, 'dark'}
     {90, 3.25, 'xmod'}
+    {200, 1, 'xmod'}
+    {216, 2, 'xmod'}
     {218, 3.25, 'xmod'}
     {243, 0, 'rotationz'}
 
@@ -392,8 +394,14 @@ ease
 
     {67, 1, inOutCirc, 0, 'beat'}
 
+    
     {71.75, 1, inOutCirc, 150, 'beat'}
     {72.5, 1, inOutCirc, 0.0001, 'bumpy'}
+
+    {71.75, 2, outElastic, -100, 'tiny2'}
+
+    {72, 0.125, outCirc, 200, 'tiny0', 200, 'tiny1', 200, 'tiny3', -50, 'movex2'}
+    {73, 0.125, outCirc, 0, 'tiny0', 0, 'tiny1', 0, 'tiny2', 0, 'tiny3', 0, 'movex2'}
 
     {85.75, 0.5, inOutCirc, 100, 'reverse', 100, 'invert', 1.5, 'xmod'}
     {85.75, 1, inOutCirc, 0, 'beat'}
@@ -423,11 +431,18 @@ ease
     {167.75, 1, flip(inExpo), 100, 'stealth', 100, 'dark', plr = 2}
     
     {203, 2, inOutQuint, 0, 'invert'}
-    {211, 2, inOutQuint, 100, 'invert'}
+    {205, 2, inOutQuint, 100, 'stealth1', 100, 'dark1'}
+    {207, 2, inOutQuint, 50, 'movex'}
+    {211, 2, inOutQuint, 100, 'invert', 0, 'stealth1', 0, 'dark1', 0, 'movex', 0, 'movex3'}
     {212, 3, linear, 50, 'invert', 25, 'flip'}
 
     {243.5, 0.5, inQuad, -100, 'movex', 200, 'drunk', 100, 'tipsy', 115, 'zoomy', -10, 'skewx', 10, 'rotationz', -75, 'rotationy', -50, 'tiny'}
     {244, 4, outElastic, 0, 'movex', 0, 'drunk', 0, 'tipsy', 100, 'zoomy', 0, 'skewx', 0, 'rotationz',0, 'rotationy', 0, 'tiny'}
+
+    {279.75, 2, outElastic, -100, 'tiny2'}
+
+    {280, 0.125, outCirc, 200, 'tiny0', 200, 'tiny1', 200, 'tiny3', -150, 'movex2'}
+    {280.75, 0.5, inOutCirc, 0, 'tiny0', 0, 'tiny1', 0, 'tiny2', 0, 'tiny3', 0, 'movex2'}
 
     {309.5, 2, bell, 100, 'reverse'}
     {311, 0.5, outCirc, 0, 'beat'}
@@ -484,7 +499,7 @@ swap
     {279.75, 2, inCirc, 'ldur'}
 
     {203, 2, inOutQuint, 'urld'}
-    {207, 2, inOutQuint, 'ludr'}
+    {207, 2, inOutQuint, 'lurd'}
     {211, 2, inOutQuint, 'ldur'}
 
     {309.5, 2, bell, 'urld'}
