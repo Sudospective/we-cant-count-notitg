@@ -105,13 +105,18 @@ Type = "ActorFrame"
 			<Layer Type = "BitmapText" Font = "_eurostile" Text = "8" />
 			</children>
 		</Layer>
-		<Layer Type = "BitmapText" Name = "WrongWay" Font = "_eurostile" />
 		</children>
 	</Layer>
 	<Layer Type = "Sprite" Name = "AFTSprite" />
 	<Layer Type = "Quad" Name = "NoteInvert" />
 	<Layer Type = "Quad" Name = "NoteMask" />
 	<Layer Type = "ActorFrameTexture" Name = "AFT" />
+	<Layer Type = "ActorFrame" Name = "CenteredButOutside" LoadCommand = "%xero(function(self) self:xy(scx, scy) end)">
+		<children>
+		<Layer Type = "BitmapText" Name = "WrongWay" Font = "_eurostile" />
+		<Layer Type = "BitmapText" Name = "ComboCounter" Font = "_eurostile" />
+		</children>
+	</Layer>
 	<Layer Type = "ActorProxy" Name = "PC[1]" />
 	<Layer Type = "ActorProxy" Name = "PC[2]" />
 	<Layer Type = "ActorProxy" Name = "PJ[1]" />

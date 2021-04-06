@@ -28,6 +28,7 @@ definemod {
 
 func {0, function()
     WrongWay:hidden(1)
+    ComboCounter:hidden(1)
     for cn = 1, #WeCantCount do
         WeCantCount[cn]:hidden(1)
     end
@@ -68,6 +69,24 @@ local function attempt_to_count(beat)
     end
     --]]
     ---[[
+    local combo = 0
+    for addcombo = beat, beat + 10, 2 do
+        func {addcombo, function()
+            combo = combo + 1
+            ComboCounter:settext('Combo: '..combo)
+            ComboCounter:diffuse(0.5, 1, 0.5, 1)
+            ComboCounter:decelerate(0.25)
+            ComboCounter:diffuse(1, 1, 1, 1)
+        end, persist = false}
+    end
+    func {beat + 12, function()
+        combo = 0
+        ComboCounter:settext('Combo: '..combo)
+        ComboCounter:diffuse(1, 0.5, 0.5, 1)
+        ComboCounter:decelerate(0.25)
+        ComboCounter:diffuse(1, 1, 1, 1)
+    end, persist = false}
+
     func {beat + 1.75, 0.5, inOutCirc, 0, scx * 0.4, function(p)
         for pn = 1, 2 do
             PP[pn]:hidden(1)
@@ -186,10 +205,18 @@ local function fuck_go_back(beat)
         end}
         {beat + 1, function()
             WrongWay:settext('4')
-        end}
+            ComboCounter:settext('Combo: -1')
+            ComboCounter:diffuse(1, 0.5, 0.5, 1)
+            ComboCounter:decelerate(0.25)
+            ComboCounter:diffuse(1, 1, 1, 1)
+        end, persist = false}
         {beat + 2, function()
             WrongWay:settext('3')
-        end}
+            ComboCounter:settext('Combo: -2')
+            ComboCounter:diffuse(1, 0.5, 0.5, 1)
+            ComboCounter:decelerate(0.25)
+            ComboCounter:diffuse(1, 1, 1, 1)
+        end, persist = false}
         {beat + 4, function()
             WrongWay:settext('1')
         end}
@@ -532,20 +559,46 @@ swap
 
 -- Func
 func
+    {2, function()
+        WrongWay:hidden(0)
+        WrongWay:settext("Okay, girls.")
+    end}
+    {4, function()
+        ComboCounter:hidden(0)
+        ComboCounter:settext('Combo: 0')
+        ComboCounter:y(-scy * 1.3)
+        ComboCounter:decelerate(1)
+        ComboCounter:y(-scy * 0.9)
+        WrongWay:settext("Let's count to 10.")
+    end}
+    {6, function() WrongWay:hidden(1) end}
     {86.5, function() NoteMask:hidden(1) end}
     {88, function() NoteMask:hidden(0) end}
     {88.5, function() NoteMask:hidden(1) end}
     {90, function() NoteMask:hidden(0) end}
+    {102.5, function() ComboCounter:hidden(1) end}
     {118, function() NoteMask:hidden(1) end}
     {121, function() NoteMask:hidden(0) end}
     {134, function() NoteMask:hidden(1) end}
+    {136, function() ComboCounter:hidden(0) end}
     {136, function() NoteMask:hidden(0) end}
     {136, function() RainbowBG:hidden(0) end}
     {150, function() NoteMask:rainbow() end}
     {150, function() RainbowBG:hidden(1) end}
     {152, function() RainbowBG:hidden(0) end}
     {164, function() RainbowBG:hidden(1) end}
+    {164, function() ComboCounter:hidden(1) end}
     {167, function() WrongWay:hidden(1) end}
+    {172.5, function()
+        WrongWay:hidden(0)
+        WrongWay:settext("You're very close.")
+    end}
+    {175.5, function()
+        WrongWay:settext("Let's try one more time.")
+    end}
+    {179, function()
+        WrongWay:hidden(1)
+    end}
     {212, function()
         for pn = 1, 2 do
             P[pn]:vibrate()
@@ -562,10 +615,32 @@ func
         AFTSprite:effectmagnitude(0, 0, 2)
         AFTSprite:effectclock('bgm')
         AFTSprite:effectoffset(0.5)
+        ComboCounter:hidden(0)
+        ComboCounter:pulse()
+        ComboCounter:effectmagnitude(1.25, 1, 1)
+        ComboCounter:effectclock('bgm')
+        ComboCounter:effectperiod(1)
+        for pn = 1, 2 do
+            P[pn]:bob()
+            P[pn]:effectmagnitude(0, 0, 200)
+            P[pn]:effectclock('bgm')
+            P[pn]:effectperiod(1)
+        end
+    end, persist = false}
+    {244, function()
+        AFTSprite:diffusealpha(0)
+        ComboCounter:hidden(1)
+        for pn = 1, 2 do
+            P[pn]:stopeffect()
+        end
     end}
-    {244, function() AFTSprite:diffusealpha(0) end}
     {248, function() AFTSprite:diffusealpha(0.5) end}
     {248, function() WrongWay:hidden(1) end}
+    {310, function()
+        WrongWay:hidden(0)
+        WrongWay:settext('shit')
+    end}
+    {311, function() WrongWay:hidden(1) end}
     {311, function() NoteMask:hidden(1) end}
     {311, function() RainbowBG:hidden(1) end}
     {311, function() AFTSprite:diffusealpha(0) end}
