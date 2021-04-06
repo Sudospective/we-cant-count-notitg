@@ -50,10 +50,18 @@ set {182,
 func {182, function()
 	for pn = 1, 2 do
 		local a = P[pn]
-		local mult = 1 if pn == 2 then mult = -1 end
+		local mult = ((pn % 2) - 0.5) * 2
 		if a then
-			a:x( sw / 2 - ( sw / 4 ) * mult )
 			a:y( sh * 1.5 * mult )
+		end
+	end
+	for pn = 1, #WeCantCount do
+		local a = WeCantCount[pn]
+		--local mult = 1 if pn == 2 then mult = -1 end
+		local mult = ((pn % 2) - 0.5) * 2
+		if a then
+			--a:x( sw / 2 - ( sw / 4 ) * mult )
+			a:x( ( sw / 4 ) * mult )
 		end
 	end
 end}
@@ -124,10 +132,11 @@ end}
 	end
 end}
 {200, function()
-	for pn = 1, 2 do
-		local a = P[pn]
+	for pn = 1, #WeCantCount do
+		local a = WeCantCount[pn]
 		if a then
-			a:x(scx)
+			--a:x(scx)
+			a:x(0)
 		end
 	end
 end}

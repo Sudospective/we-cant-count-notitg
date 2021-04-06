@@ -60,43 +60,52 @@ Type = "ActorFrame"
 		<Layer Type = "ActorFrame" Name = "WeCantCount[1]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "1" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[2]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "2" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[3]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "3" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[4]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "4" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[5]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "5" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[6]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "6" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[7]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "7" />
 			</children>
 		</Layer>
 		<Layer Type = "ActorFrame" Name = "WeCantCount[8]">
 		 	<children>
 			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "BitmapText" Font = "_eurostile" Text = "8" />
 			</children>
 		</Layer>
+		<Layer Type = "BitmapText" Name = "WrongWay" Font = "_eurostile" />
 		</children>
 	</Layer>
 	<Layer Type = "Sprite" Name = "AFTSprite" />

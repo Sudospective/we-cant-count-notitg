@@ -27,10 +27,8 @@ definemod {
 }
 
 func {0, function()
-    for pn = 1, 2 do
-        PP[pn]:hidden(1)
-    end
-    for cn = 2, #WeCantCount do
+    WrongWay:hidden(1)
+    for cn = 1, #WeCantCount do
         WeCantCount[cn]:hidden(1)
     end
 end}
@@ -70,13 +68,11 @@ local function attempt_to_count(beat)
     end
     --]]
     ---[[
-    func {beat, function()
+    func {beat + 1.75, 0.5, inOutCirc, 0, scx * 0.4, function(p)
         for pn = 1, 2 do
             PP[pn]:hidden(1)
         end
         WeCantCount[1]:hidden(0)
-    end}
-    func {beat + 1.75, 0.5, inOutCirc, 0, scx * 0.4, function(p)
         WeCantCount[2]:hidden(0)
         for cn = 1, #WeCantCount do
             if not WeCantCount[cn]:GetHidden() and cn % 2 == 1 then
@@ -145,40 +141,70 @@ local function attempt_to_count(beat)
 end
 
 local function try_again(beat)
-    func {beat + 1.5, 0.5, inCirc, scx * 0.4, 0, function(p)
-        for cn = 1, #WeCantCount do
-            WeCantCount[cn]:x(p * ((((cn % 2) - 0.5) * 2) + (2 * (((cn > 2 and (((cn % 2) - 0.5) * 2)) or 0))))) -- dont ask.
-        end
-    end}
-    func {beat + 2, function()
-        for pn = 1, 2 do
-            PP[pn]:hidden(0)
-        end
-        for cn = 1, #WeCantCount do
-            WeCantCount[cn]:x(0)
-            WeCantCount[cn]:hidden(1)
-        end
-    end}
+    func
+        {beat + 1.75, 0.25, inCirc, scx * 2.8, 0, function(p)
+            for cn = 1, #WeCantCount do
+                if cn % 2 == 1 then
+                    WeCantCount[cn]:x(((scx * 0.4) * (cn - 1)) - p)
+                else
+                    WeCantCount[cn]:x(-((scx * 0.4) * (cn - 2)) + p)
+                end
+            end
+        end}
+        {beat + 2, function()
+            for pn = 1, 2 do
+                PP[pn]:hidden(0)
+            end
+            for cn = 1, #WeCantCount do
+                WeCantCount[cn]:x(0)
+                WeCantCount[cn]:hidden(1)
+            end
+        end}
 end
 
 local function fuck_go_back(beat)
-    func {beat, 1, instant, function()
-        for pn = 1, 2 do
-            PP[pn]:hidden(0)
-        end
-        for cn = 1, #WeCantCount do
-            WeCantCount[cn]:x(0)
-            WeCantCount[cn]:hidden(1)
-        end
-    end}
+    func
+        {beat - 0.25, 0.25, inCirc, scx * 0.4, 0, function(p)
+            for cn = 1, #WeCantCount do
+                if cn % 2 == 1 then
+                    WeCantCount[cn]:x(((scx * 0.4) * (cn - 1)) - p)
+                else
+                    WeCantCount[cn]:x(-((scx * 0.4) * (cn - 2)) + p)
+                end
+            end
+        end}
+        {beat, 1, instant, function()
+            for pn = 1, 2 do
+                PP[pn]:hidden(0)
+            end
+            for cn = 1, #WeCantCount do
+                WeCantCount[cn]:x(0)
+                WeCantCount[cn]:hidden(1)
+            end
+            WrongWay:hidden(0)
+            WrongWay:settext('5')
+        end}
+        {beat + 1, function()
+            WrongWay:settext('4')
+        end}
+        {beat + 2, function()
+            WrongWay:settext('3')
+        end}
+        {beat + 4, function()
+            WrongWay:settext('1')
+        end}
+        {beat + 5, function()
+            WrongWay:hidden(1)
+        end}
 
     ease
-        {beat, 2, outElastic, 1.5, 'xmod'}
-        {beat, 2, outElastic, 25, 'invert', -25, 'flip', -45 * math.pi/1.8, 'confusionzoffset0', 135 * math.pi/1.8, 'confusionzoffset1', 45 * math.pi/1.8, 'confusionzoffset2', 45 * math.pi/1.8, 'confusionzoffset3', plr = 1}
+        {beat, 0.125, outCirc, 1.5, 'xmod'}
+        {beat, 2, outElastic, -50, 'holdgirth', 25, 'invert', -25, 'flip', -45 * math.pi/1.8, 'confusionzoffset0', 135 * math.pi/1.8, 'confusionzoffset1', 45 * math.pi/1.8, 'confusionzoffset2', 45 * math.pi/1.8, 'confusionzoffset3', plr = 1}
         {beat, 0.25, outCirc, 50, 'flip', 100, 'stealth', 100, 'dark0', 100, 'dark2', 100, 'dark3', 100, 'hidenoteflashes', plr = 2}
-        {beat + 1, 2, outElastic, 0, 'invert', 0, 'flip', 0, 'confusionzoffset0', 0, 'confusionzoffset1', 0, 'confusionzoffset2', 0, 'confusionzoffset3', plr = 1}
-        {beat + 0.75, 0.25, inOutCirc, 200, 'tiny', plr = 2}
-        {beat + 1.875, 0.25, inOutCirc, 50, 'movex', 200, 'tiny2', plr = 1}
+        {beat + 1, 2, outElastic, 0, 'holdgirth', 0, 'invert', 0, 'flip', 0, 'confusionzoffset0', 0, 'confusionzoffset1', 0, 'confusionzoffset2', 0, 'confusionzoffset3', plr = 1}
+        {beat + 0.875, 0.25, inOutCirc, 200, 'tiny', plr = 2}
+        {beat + 1.875, 0.25, inOutCirc, 200, 'tiny2', plr = 1}
+        {beat + 2, 2, outElastic, 50, 'movex', plr = 1}
         {beat + 3.875, 0.25, inOutCirc, 0, 'movex', 0, 'tiny2', 0, 'flip', 0, 'stealth', 0, 'dark0', 0, 'dark2', 0, 'dark3', 0, 'hidenoteflashes', 0, 'tiny'}
         {beat + 5, 1, outCirc, 3.25, 'xmod'}
 end
@@ -431,8 +457,8 @@ ease
     {167.75, 1, flip(inExpo), 100, 'stealth', 100, 'dark', plr = 2}
     
     {203, 2, inOutQuint, 0, 'invert'}
-    {205, 2, inOutQuint, 100, 'stealth1', 100, 'dark1'}
-    {207, 2, inOutQuint, 50, 'movex'}
+    {206, 2, inOutQuint, 100, 'stealth1', 100, 'dark1'}
+    {206, 2, inOutQuint, 50, 'movex'}
     {211, 2, inOutQuint, 100, 'invert', 0, 'stealth1', 0, 'dark1', 0, 'movex', 0, 'movex3'}
     {212, 3, linear, 50, 'invert', 25, 'flip'}
 
@@ -519,6 +545,7 @@ func
     {150, function() RainbowBG:hidden(1) end}
     {152, function() RainbowBG:hidden(0) end}
     {164, function() RainbowBG:hidden(1) end}
+    {167, function() WrongWay:hidden(1) end}
     {212, function()
         for pn = 1, 2 do
             P[pn]:vibrate()
@@ -538,6 +565,7 @@ func
     end}
     {244, function() AFTSprite:diffusealpha(0) end}
     {248, function() AFTSprite:diffusealpha(0.5) end}
+    {248, function() WrongWay:hidden(1) end}
     {311, function() NoteMask:hidden(1) end}
     {311, function() RainbowBG:hidden(1) end}
     {311, function() AFTSprite:diffusealpha(0) end}
@@ -576,4 +604,20 @@ for beat = 8, 310, 2 do
     elseif beat >= 282 and beat < 310 then
         bop(beat, 4)
     end
+end
+local cn_count = 0
+for beat = 184, 196, 4 do
+    func {beat, function()
+        PP[1]:hidden(1)
+        PP[2]:hidden(1)
+        cn_count = cn_count + 1
+        WeCantCount[cn_count]:hidden(0)
+    end}
+    func {beat + 4, function()
+        PP[1]:hidden(0)
+        PP[2]:hidden(0)
+        for cn = 1, #WeCantCount do
+            WeCantCount[cn]:hidden(1)
+        end
+    end}
 end
