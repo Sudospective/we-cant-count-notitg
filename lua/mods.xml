@@ -11,6 +11,7 @@
 		P[pn]:hidden(1)
 	end
 	-- your code goes here here:
+	MESSAGEMAN:Broadcast('Setup')
 	function bg(a)
 		a:xy(scx, scy)
 		a:SetWidth(sw)
@@ -25,7 +26,7 @@
 	aftsprite(AFT, AFTSprite)
 	AFTSprite:diffusealpha(0)
 
-	setdefault {2, 'xmod', 100, 'modtimer', 100, 'dizzyholds', 100, 'gayholds', 100, 'halgun'}
+	setdefault {3, 'xmod', 100, 'modtimer', 100, 'dizzyholds', 100, 'gayholds', 100, 'halgun'}
 
 	-- i dont like xml
 	local songDir = '.' .. GAMESTATE:GetCurrentSong():GetMusicPath() .. '/../'
@@ -39,6 +40,58 @@ Type = "ActorFrame"
 	<Layer Type = "Quad" Name = "RainbowBG" />
 	<Layer Type = "ActorProxy" Name = "PP[1]" />
 	<Layer Type = "ActorProxy" Name = "PP[2]" />
+	<Layer Type = "ActorFrame" Name = "x = 10 xero(function() WeCantCount = {} end) BadAtCounting" SetupMessageCommand = "%xero(function(self) self:xy(scx, scy) end)">
+		<children>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[1]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[2]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[3]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[4]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[5]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[6]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[7]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		<Layer Type = "ActorFrame" Name = "WeCantCount[8]">
+		 	<children>
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[1]) self:xy(-scx, -scy) end)" />
+			<Layer Type = "ActorProxy" SetupMessageCommand = "%xero(function(self) self:SetTarget(P[2]) self:xy(-scx, -scy) end)" />
+			</children>
+		</Layer>
+		</children>
+	</Layer>
 	<Layer Type = "Sprite" Name = "AFTSprite" />
 	<Layer Type = "Quad" Name = "NoteInvert" />
 	<Layer Type = "Quad" Name = "NoteMask" />

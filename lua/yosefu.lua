@@ -2,11 +2,21 @@ xero()
 
 
 
+-- sorry i have to edit these due to conflicts on my funnies
+--[[
 swap
 {69.75, 0.5, inOutCirc, 'dlru'}
 {70.25, 0.5, inOutCirc, 'rudl'}
 {70.75, 0.5, inOutCirc, 'urld'}
 {71.25, 0.5, inOutCirc, 'ldur'}
+--]]
+
+swap
+{69.75, 0.5, inOutCirc, 'dlru'}
+{70.25, 0.5, inOutCirc, 'rdlu'}
+{70.75, 0.5, inOutCirc, 'rldu'}
+{71.25, 0.5, inOutCirc, 'ldru'}
+{71.75, 0.5, inOutCirc, 'ldur'}
 
 
 ease
