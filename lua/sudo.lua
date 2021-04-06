@@ -178,12 +178,14 @@ local function fuck_go_back(beat)
     end}
 
     ease
+        {beat, 0.25, outCirc, 1.5, 'xmod'}
         {beat, 0.25, outCirc, 25, 'invert', -25, 'flip', -45 * math.pi/1.8, 'confusionzoffset0', 135 * math.pi/1.8, 'confusionzoffset1', 45 * math.pi/1.8, 'confusionzoffset2', 45 * math.pi/1.8, 'confusionzoffset3', plr = 1}
         {beat, 0.25, outCirc, 50, 'flip', 100, 'stealth', 100, 'dark0', 100, 'dark2', 100, 'dark3', 100, 'hidenoteflashes', plr = 2}
         {beat + 0.75, 0.5, inOutCirc, 0, 'invert', 0, 'flip', 0, 'confusionzoffset0', 0, 'confusionzoffset1', 0, 'confusionzoffset2', 0, 'confusionzoffset3', plr = 1}
         {beat + 0.75, 0.5, inOutCirc, 200, 'tiny', plr = 2}
         {beat + 1.75, 0.5, inOutCirc, 50, 'movex', 200, 'tiny2', plr = 1}
         {beat + 3.75, 0.25, inCirc, 0, 'movex', 0, 'tiny2', 0, 'flip', 0, 'stealth', 0, 'dark0', 0, 'dark2', 0, 'dark3', 0, 'hidenoteflashes', 0, 'tiny'}
+        {beat + 4.75, 0.25, inCirc, 3, 'xmod'}
 
     func {beat + 4, function()
         for pn = 1, 2 do
@@ -399,8 +401,8 @@ ease
     {87.5, 1, bounce, -150, 'beat'}
     {89.5, 0.5, inCirc, 150, 'beat'}
 
-    {117.5, 1, inOutCirc, 0, 'beat', 100, 'reverse', 100, 'drunk', 1, 'xmod', -200, 'tiny'}
-    {120.5, 1, inOutCirc, 100, 'beat', 0, 'reverse', 0, 'drunk', 0, 'tiny'}
+    {117.5, 1, inOutCirc, 0, 'beat', 100, 'reverse', 50, 'drunk', 1.5, 'xmod', 50, 'mini'}
+    {120.5, 1, inOutCirc, 100, 'beat', 0, 'reverse', 0, 'drunk', 0, 'mini'}
     {118, 3, inExpo, 5, 'xmod'}
     {120.5, 1, spike, -5000, 'tiny'}
     {121, 1, outExpo, 3, 'xmod'}
@@ -426,9 +428,6 @@ ease
 
     {243.5, 0.5, inQuad, -100, 'movex', 200, 'drunk', 100, 'tipsy', 115, 'zoomy', -10, 'skewx', 10, 'rotationz', -75, 'rotationy', -50, 'tiny'}
     {244, 4, outElastic, 0, 'movex', 0, 'drunk', 0, 'tipsy', 100, 'zoomy', 0, 'skewx', 0, 'rotationz',0, 'rotationy', 0, 'tiny'}
-
-    {275.75, 0.5, inOutCirc, 2, 'xmod'}
-    {280.75, 0.5, inOutCirc, 3, 'xmod'}
 
     {309.5, 2, bell, 100, 'reverse'}
     {311, 0.5, outCirc, 0, 'beat'}
@@ -466,11 +465,11 @@ swap
 
     {87.75, 0.5, inOutCirc, 'ludr'}
     {89, 0.5, inOutCirc, 'ldur'}
-    {117.75, 0.5, inOutCirc, 'dlru'}
-    {118.25, 0.5, inOutCirc, 'urld'}
-    {118.75, 0.5, inOutCirc, 'ldur'}
-    {119.25, 0.5, inOutCirc, 'rudl'}
-    {120.75, 0.5, inOutCirc, 'lurd'}
+    {117.5, 1, inOutCirc, 'dlru'}
+    {118, 1, inOutCirc, 'ldur'}
+    {118.5, 1, inOutCirc, 'urld'}
+    {119, 1, inOutCirc, 'rudl'}
+    {120.5, 1, inOutCirc, 'ldur'}
     
     {165.75, 0.5, inOutCirc, 'ldru'}
     {167.5, 2, outElastic, 'ldur'}
